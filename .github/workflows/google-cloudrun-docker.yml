@@ -89,7 +89,7 @@ jobs:
       
       - name: Build and Push Container
         run: |-
-          docker build --build-arg DEV_NAME_1=${{ env.DEV_NAME_1 }} --build-arg DEV_NAME_2=${{ env.DEV_NAME_1 }} -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}/${{ github.sha }}" ./
+          docker build --build-arg DEV_NAME_1=$DEV_NAME_1 --build-arg DEV_NAME_2=$DEV_NAME_1 -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}/${{ github.sha }}" ./
           docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}/${{ github.sha }}"
 
       # END - Docker auth and build
