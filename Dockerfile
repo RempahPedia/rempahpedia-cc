@@ -5,8 +5,8 @@ FROM node:20-alpine
 ARG DEV_NAME_1
 ARG DEV_NAME_2
 
-ENV DEV_NAME_1
-ENV DEV_NAME_2
+ENV DEV_NAME_1 {$DEV_NAME_1}
+ENV DEV_NAME_2 {$DEV_NAME_2}
 
 # Create and set the working directory
 WORKDIR /usr/src/app
