@@ -80,8 +80,8 @@ jobs:
       # Authenticate Docker to Google Cloud Artifact Registry
       - name: Build and Push Container
         run: |-
-          docker build --build-arg DEV_NAME_1=${{ env.DEV_NAME_1 }} --build-arg DEV_NAME_2=${{ env.DEV_NAME_1 }} -t "gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}" ./
-          docker push "gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
+          docker build --build-arg DEV_NAME_1=${{ env.DEV_NAME_1 }} --build-arg DEV_NAME_2=${{ env.DEV_NAME_1 }} -t "asia.gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}" ./
+          docker push "asia.gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
 
       # END - Docker auth and build
 
