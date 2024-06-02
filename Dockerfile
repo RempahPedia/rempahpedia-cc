@@ -18,8 +18,8 @@ RUN npm install
 COPY . .
 
 # Expose the port the app runs on
-ENV DEV_NAME_1 {$DEV_NAME_1}
-ENV DEV_NAME_2 {$DEV_NAME_2}
+ENV DEV_NAME_1 $DEV_NAME_1
+ENV DEV_NAME_2 $DEV_NAME_2
 ENV PORT=8080
 
 EXPOSE 8080
