@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
 // query select example
 app.get('/dbtest', async (req, res) => {
     try {
-      const now = await db.query('SELECT * FROM rempah');
-      res.send(`Current time: ${now[0].nama} and ${now[0].deskripsi}`);
+      const result = await db.query('SELECT * FROM rempah');
+      res.send(`Current time: ${result[2].nama} and ${result[2].deskripsi}`);
     } catch (error) {
         console.log(error)
     }

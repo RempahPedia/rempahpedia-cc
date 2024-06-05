@@ -12,15 +12,15 @@ class DatabasePool {
   async init() {
     const connector = new Connector();
     const clientOpts = await connector.getOptions({
-      instanceConnectionName: "rempahpedia-be:asia-southeast2:rempahpedia-db",
+      instanceConnectionName: process.env.INSTANCE_CONNECTION_NAME,
       ipType: 'PUBLIC',
     });
 
     this.pool = new pg.Pool({
       ...clientOpts,
       user: 'postgres',
-      password: "Go.=%M=LYR:)gF8}",
-      database: "rempahpedia",
+      password: process.env.DB_PASS,
+      database: process.env.DB_NAME,
       max: 5,
     });
   }

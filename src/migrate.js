@@ -4,14 +4,16 @@ async function migrate() {
     try{
         await db.runMigration();
         await db.runSeeding();
-        console.log("succesful migrations and seeding")
+        console.log("succesful migrations and seeding");
     }
     catch(error){
-        console.log("fail to migrate")
-        console.log(error)
+        console.log("fail to migrate");
+        console.log(error);
+        process.exit(1);
     }
     finally{
-        await db.end()
+        await db.end();
+        process.exit(0);
     }
 }
 
