@@ -56,7 +56,7 @@ env:
   DEV_NAME_1: ${{ secrets.DEV_NAME_1 }}
   DEV_NAME_2: ${{ secrets.DEV_NAME_2 }}
   DB_NAME: ${{ secrets.DB_NAME }}
-  DB_PASS: ${{ secrects.DB_PASS }}
+  DB_PASS: ${{ secrets.DB_PASS }}
   INSTANCE_CONNECTION_NAME: ${{ secrets.INSTANCE_CONNECTION_NAME}}
 
 jobs:
