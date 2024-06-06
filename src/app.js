@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
 const db = require('./config/dbconnection');
+const admin = require('firebase-admin');
+const serviceAccount = require('./path/to/serviceAccountKey.json'); // Download this from Firebase Console
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    // databaseURL: "https://<your-database-name>.firebaseio.com"
+});
 
 // Import Routes
 // const userRoutes = require('./routes/userRoutes');
