@@ -1,13 +1,9 @@
 const express = require('express');
 const app = express();
 const db = require('./config/dbconnection');
-const admin = require('firebase-admin');
-const serviceAccount = require('./path/to/serviceAccountKey.json'); // Download this from Firebase Console
-
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    // databaseURL: "https://<your-database-name>.firebaseio.com"
-});
+const cookieParser = require('cookie-parser');
+const router = require("./routes");
+require("dotenv").config();
 
 // Import Routes
 // const userRoutes = require('./routes/userRoutes');
@@ -17,6 +13,8 @@ const devName2 = process.env.DEV_NAME_2
 
 // Middleware
 app.use(express.json());
+app.use(cookieParser());
+app.use(router);
 
 
 app.get('/', (req, res) => {
