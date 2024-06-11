@@ -9,7 +9,8 @@ CREATE TABLE Rempah (
     id SERIAL PRIMARY KEY,
     nama VARCHAR(255) NOT NULL UNIQUE,
     deskripsi TEXT,
-    manfaat_ids INT[]
+    manfaat_ids INT[],
+    image_url TEXT
 );
 
 -- 3. Create enum type for Penyakit
