@@ -6,6 +6,13 @@ async function getAllRempah(){
     return rows;
 }
 
+async function getRempah(id){
+    const query = 'SELECT * FROM rempah WHERE id=$1';
+    const rows = await db.query(query, [id]);
+    return rows;
+}
+
 module.exports = {
     getAllRempah,
+    getRempah
 };
