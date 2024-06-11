@@ -1,30 +1,55 @@
 -- Seeding Rempah Data
-INSERT INTO Rempah (nama, deskripsi) VALUES
-    ('adas', 'Adas digunakan dalam berbagai masakan untuk memberikan rasa yang unik.'),
-    ('andaliman', 'Andaliman, juga dikenal sebagai merica batak, memiliki rasa pedas dan sering digunakan dalam masakan Sumatra.'),
-    ('asam_jawa', 'Asam Jawa digunakan sebagai bumbu dan bahan dasar dalam banyak masakan tradisional Indonesia.'),
-    ('biji_ketumbar', 'Biji ketumbar digunakan sebagai bumbu dan memiliki aroma yang khas.'),
-    ('bunga_lawang', 'Bunga Lawang atau pekak digunakan untuk memberikan aroma harum dalam masakan.'),
-    ('cengkeh', 'Cengkeh digunakan sebagai bumbu dan memiliki aroma yang kuat dan khas.'),
-    ('daun_ketumbar', 'Daun ketumbar sering digunakan sebagai hiasan atau bumbu masakan.'),
-    ('daun_salam', 'Daun salam sering digunakan untuk memberikan aroma khas pada masakan.'),
-    ('jahe', 'Jahe digunakan dalam berbagai masakan dan minuman untuk memberikan rasa pedas dan aroma khas.'),
-    ('jinten', 'Jinten sering digunakan dalam masakan Timur Tengah dan India.'),
-    ('kapulaga', 'Kapulaga digunakan untuk memberikan rasa dan aroma khas pada masakan.'),
-    ('kayu_manis', 'Kayu manis digunakan untuk memberikan rasa manis dan aroma dalam masakan.'),
-    ('kayu_secang', 'Kayu secang digunakan untuk memberikan warna merah pada minuman tradisional.'),
-    ('kemiri', 'Kemiri digunakan sebagai bumbu dan bahan dasar dalam berbagai masakan Indonesia.'),
-    ('kemukus', 'Kemukus memiliki rasa pedas dan digunakan dalam beberapa masakan tradisional.'),
-    ('kencur', 'Kencur digunakan dalam masakan tradisional Indonesia untuk memberikan aroma khas.'),
-    ('kluwek', 'Kluwek digunakan dalam masakan untuk memberikan warna hitam dan rasa yang khas.'),
-    ('kunyit', 'Kunyit digunakan untuk memberikan warna kuning dan rasa khas pada masakan.'),
-    ('lada', 'Lada digunakan sebagai bumbu utama dalam berbagai masakan untuk memberikan rasa pedas.'),
-    ('lengkuas', 'Lengkuas digunakan dalam berbagai masakan Indonesia untuk memberikan aroma dan rasa yang khas.'),
-    ('pala', 'Pala digunakan sebagai bumbu dan memiliki aroma yang kuat dan manis.'),
-    ('saffron', 'Saffron adalah bumbu mahal yang digunakan untuk memberikan warna dan rasa pada masakan.'),
-    ('serai', 'Serai digunakan untuk memberikan aroma segar pada masakan dan minuman.'),
-    ('vanili', 'Vanili digunakan sebagai bumbu untuk memberikan aroma manis pada kue dan masakan.'),
-    ('wijen', 'Wijen digunakan sebagai hiasan atau bumbu dalam berbagai masakan.');
+INSERT INTO Rempah (nama, deskripsi, manfaat_ids, image_url) VALUES
+    ('adas', 'Adas digunakan dalam berbagai masakan untuk memberikan rasa yang unik. Adas juga diketahui memiliki manfaat untuk pencernaan.', ARRAY[3], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/adas.jpg'),
+    ('andaliman', 'Andaliman, juga dikenal sebagai merica batak, memiliki rasa pedas dan sering digunakan dalam masakan Sumatra. Bumbu ini juga memiliki sifat anti-inflamasi.', ARRAY[9], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/andaliman.jpg'),
+    ('asam jawa', 'Asam Jawa digunakan sebagai bumbu dan bahan dasar dalam banyak masakan tradisional Indonesia, serta memiliki sifat antioksidan.', ARRAY[1], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/asam-jawa.jpg'),
+    ('biji ketumbar', 'Biji ketumbar digunakan sebagai bumbu dan memiliki aroma yang khas. Ketumbar juga dapat membantu melancarkan pencernaan.', ARRAY[3], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/biji-ketumbar.jpeg'),
+    ('bunga lawang', 'Bunga Lawang atau pekak digunakan untuk memberikan aroma harum dalam masakan dan memiliki sifat antibakteri.', ARRAY[1], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/lawang.jpg'),
+    ('cengkeh', 'Cengkeh digunakan sebagai bumbu dan memiliki aroma yang kuat dan khas. Cengkeh juga dikenal dapat meredakan sakit gigi dan nyeri sendi.', ARRAY[2], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/cengkeh.jpeg'),
+    ('daun ketumbar', 'Daun ketumbar sering digunakan sebagai hiasan atau bumbu masakan dan dapat membantu mengurangi inflamasi.', ARRAY[9], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/daun-ketumbar.jpg'),
+    ('daun salam', 'Daun salam sering digunakan untuk memberikan aroma khas pada masakan, serta dapat membantu meningkatkan daya tahan tubuh.', ARRAY[1], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/daun-salam.jpeg'),
+    ('jahe', 'Jahe digunakan dalam berbagai masakan dan minuman untuk memberikan rasa pedas dan aroma khas. Jahe juga bermanfaat untuk meredakan batuk dan mengurangi peradangan.', ARRAY[7, 9], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/jahe.jpeg'),
+    ('jinten', 'Jinten sering digunakan dalam masakan Timur Tengah dan India. Jinten juga diketahui dapat melancarkan pencernaan.', ARRAY[3], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/jinten.jpg'),
+    ('kapulaga', 'Kapulaga digunakan untuk memberikan rasa dan aroma khas pada masakan, serta dapat menurunkan tekanan darah.', ARRAY[1], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/kapulaga.jpeg'),
+    ('kayu manis', 'Kayu manis digunakan untuk memberikan rasa manis dan aroma dalam masakan. Kayu manis juga dapat membantu menurunkan kadar gula darah.', ARRAY[4], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/kayu-manis.jpg'),
+    ('kayu secang', 'Kayu secang digunakan untuk memberikan warna merah pada minuman tradisional dan memiliki sifat antioksidan.', ARRAY[1], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/secang.jpg'),
+    ('kemiri', 'Kemiri digunakan sebagai bumbu dan bahan dasar dalam berbagai masakan Indonesia, serta dapat mengurangi peradangan.', ARRAY[9], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/kemiri.jpg'),
+    ('kemukus', 'Kemukus memiliki rasa pedas dan digunakan dalam beberapa masakan tradisional. Kemukus juga dapat meningkatkan daya tahan tubuh.', ARRAY[1], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/kemukus.jpg'),
+    ('kencur', 'Kencur digunakan dalam masakan tradisional Indonesia untuk memberikan aroma khas dan dapat membantu mengatasi insomnia.', ARRAY[6], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/kencur.jpg'),
+    ('kluwek', 'Kluwek digunakan dalam masakan untuk memberikan warna hitam dan rasa yang khas. Kluwek juga memiliki sifat antimikroba.', ARRAY[1], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/kluwek.jpg'),
+    ('kunyit', 'Kunyit digunakan untuk memberikan warna kuning dan rasa khas pada masakan. Kunyit juga dapat menurunkan berat badan dan menjaga kesehatan jantung.', ARRAY[5, 10], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/kunyit.jpg'),
+    ('lada', 'Lada digunakan sebagai bumbu utama dalam berbagai masakan untuk memberikan rasa pedas. Lada juga diketahui dapat meningkatkan metabolisme.', ARRAY[5], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/lada.jpg'),
+    ('lengkuas', 'Lengkuas digunakan dalam berbagai masakan Indonesia untuk memberikan aroma dan rasa yang khas, serta memiliki sifat anti-inflamasi.', ARRAY[9], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/lengkuas.jpg'),
+    ('pala', 'Pala digunakan sebagai bumbu dan memiliki aroma yang kuat dan manis. Pala juga dapat mengurangi nyeri sendi.', ARRAY[2], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/pala.jpg'),
+    ('saffron', 'Saffron adalah bumbu mahal yang digunakan untuk memberikan warna dan rasa pada masakan, serta dapat membantu mengurangi depresi.', ARRAY[8], 'https://example.com/images/saffron.jpg'),
+    ('serai', 'Serai digunakan untuk memberikan aroma segar pada masakan dan minuman, serta dapat meningkatkan daya tahan tubuh.', ARRAY[1], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/serai.jpg'),
+    ('vanili', 'Vanili digunakan sebagai bumbu untuk memberikan aroma manis pada kue dan masakan, serta dapat mengurangi stres.', ARRAY[8], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/vanili.jpg'),
+    ('wijen', 'Wijen digunakan sebagai hiasan atau bumbu dalam berbagai masakan dan memiliki kandungan nutrisi yang tinggi.', ARRAY[1], 'https://storage.googleapis.com/rempahpedia-image-repository/rempah/wijen.jpg');
+
+-- Data seeding for table Jamu
+INSERT INTO Jamu (nama, manfaat_ids, rempah_ids, penyakit) VALUES
+    ('Jamu Kunyit Asam', ARRAY[5, 10, 14], ARRAY[18, 1, 2], ARRAY[CAST('Jantung' AS Penyakit), CAST('Haid' AS Penyakit)]),
+    ('Jamu Beras Kencur', ARRAY[3, 6, 12], ARRAY[15, 4, 6], ARRAY[CAST('Gangguan Pencernaan' AS Penyakit), CAST('Insomnia' AS Penyakit)]),
+    ('Jamu Jahe', ARRAY[7, 9, 11], ARRAY[9, 7, 8], ARRAY[CAST('Batuk' AS Penyakit), CAST('Radang Tenggorokan' AS Penyakit)]),
+    ('Jamu Sambiloto', ARRAY[1, 8, 13], ARRAY[16, 5, 3], ARRAY[CAST('Imunitas' AS Penyakit)]),
+    ('Jamu Temulawak', ARRAY[4, 2, 15], ARRAY[14, 19, 20], ARRAY[CAST('Kolesterol' AS Penyakit), CAST('Nyeri Sendi' AS Penyakit)]),
+    ('Jamu Sereh', ARRAY[1, 5, 9], ARRAY[23, 13, 21], ARRAY[CAST('Imunitas' AS Penyakit), CAST('Hipertensi' AS Penyakit)]),
+    ('Jamu Kunci Sirih', ARRAY[3, 10, 12], ARRAY[15, 17, 20], ARRAY[CAST('Gangguan Pencernaan' AS Penyakit), CAST('Haid' AS Penyakit)]),
+    ('Jamu Cabe Puyang', ARRAY[4, 8, 14], ARRAY[14, 18, 21], ARRAY[CAST('Kolesterol' AS Penyakit), CAST('Anemia' AS Penyakit)]),
+    ('Jamu Kunci Pepet', ARRAY[2, 3, 5], ARRAY[17, 20, 23], ARRAY[CAST('Nyeri Sendi' AS Penyakit), CAST('Gangguan Pencernaan' AS Penyakit)]),
+    ('Jamu Sinom', ARRAY[6, 11, 12], ARRAY[18, 14, 19], ARRAY[CAST('Insomnia' AS Penyakit)]),
+    ('Jamu Pahitan', ARRAY[1, 9, 10], ARRAY[20, 16, 21], ARRAY[CAST('Imunitas' AS Penyakit), CAST('Jantung' AS Penyakit)]),
+    ('Jamu Brotowali', ARRAY[5, 8, 14], ARRAY[21, 22, 23], ARRAY[CAST('Anemia' AS Penyakit)]),
+    ('Jamu Meniran', ARRAY[2, 6, 8], ARRAY[17, 20, 22], ARRAY[CAST('Nyeri Sendi' AS Penyakit)]),
+    ('Jamu Kencur Asem', ARRAY[1, 7, 10], ARRAY[15, 18, 23], ARRAY[CAST('Imunitas' AS Penyakit), CAST('Batuk' AS Penyakit)]),
+    ('Jamu Daun Jinten', ARRAY[3, 5, 12], ARRAY[20, 21, 23], ARRAY[CAST('Gangguan Pencernaan' AS Penyakit)]),
+    ('Jamu Kencur Daun Sirih', ARRAY[2, 4, 9], ARRAY[15, 17, 23], ARRAY[CAST('Nyeri Sendi' AS Penyakit)]),
+    ('Jamu Daun Saga', ARRAY[1, 6, 13], ARRAY[20, 21, 22], ARRAY[CAST('Imunitas' AS Penyakit)]),
+    ('Jamu Daun Sambiloto', ARRAY[1, 7, 15], ARRAY[16, 21, 23], ARRAY[CAST('Imunitas' AS Penyakit)]),
+    ('Jamu Secang', ARRAY[3, 5, 9], ARRAY[13, 20, 21], ARRAY[CAST('Gangguan Pencernaan' AS Penyakit)]),
+    ('Jamu Daun Pegagan', ARRAY[1, 6, 11], ARRAY[21, 22, 23], ARRAY[CAST('Imunitas' AS Penyakit)]),
+    ('Jamu Daun Salam', ARRAY[2, 9, 12], ARRAY[23, 20, 21], ARRAY[CAST('Nyeri Sendi' AS Penyakit)]),
+    ('Jamu Daun Pandan', ARRAY[2, 6, 12], ARRAY[21, 22, 23], ARRAY[CAST('Nyeri Sendi' AS Penyakit), CAST('Insomnia' AS Penyakit)]);
 
 -- Data seeding for table Manfaat
 INSERT INTO Manfaat (nama) VALUES
@@ -37,57 +62,98 @@ INSERT INTO Manfaat (nama) VALUES
 ('Meredakan Batuk'),
 ('Mengurangi Stres'),
 ('Mengurangi Peradangan'),
-('Menjaga Kesehatan Jantung');
-
--- Data seeding for table Jamu
-INSERT INTO Jamu (nama) VALUES
-('Jamu Kunyit Asam'),
-('Jamu Beras Kencur'),
-('Jamu Jahe'),
-('Jamu Sambiloto'),
-('Jamu Temulawak');
+('Menjaga Kesehatan Jantung'),
+('Menjaga Kesehatan Kulit'),
+('Meningkatkan Fungsi Otak'),
+('Menyehatkan Rambut'),
+('Mengatasi Anemia'),
+('Mengontrol Gula Darah');
 
 -- Data seeding for table Jamu_Manfaat (relationships)
 INSERT INTO Jamu_Manfaat (jamu_id, manfaat_id) VALUES
-(1, 5), -- Jamu Kunyit Asam - Menurunkan Berat Badan
-(1, 10), -- Jamu Kunyit Asam - Menjaga Kesehatan Jantung
-(2, 3), -- Jamu Beras Kencur - Melancarkan Pencernaan
-(2, 6), -- Jamu Beras Kencur - Mengatasi Insomnia
-(3, 7), -- Jamu Jahe - Meredakan Batuk
-(3, 9), -- Jamu Jahe - Mengurangi Peradangan
-(4, 8), -- Jamu Sambiloto - Mengurangi Stres
-(4, 1), -- Jamu Sambiloto - Meningkatkan Daya Tahan Tubuh
-(5, 4), -- Jamu Temulawak - Menurunkan Kolesterol
-(5, 2); -- Jamu Temulawak - Mengurangi Nyeri Sendi
+(1, 5), (1, 10), (1, 14), 
+(2, 3), (2, 6), (2, 12), 
+(3, 7), (3, 9), (3, 11), 
+(4, 8), (4, 1), (4, 13), 
+(5, 4), (5, 2), (5, 15), 
+(6, 1), (6, 5), (6, 9), 
+(7, 3), (7, 10), (7, 12), 
+(8, 4), (8, 8), (8, 14), 
+(9, 2), (9, 3), (9, 5), 
+(10, 6), (10, 11), (10, 12), 
+(11, 1), (11, 9), (11, 10), 
+(12, 5), (12, 8), (12, 14), 
+(13, 2), (13, 6), (13, 8), 
+(14, 1), (14, 7), (14, 10), 
+(15, 3), (15, 5), (15, 12), 
+(16, 2), (16, 4), (16, 9), 
+(17, 1), (17, 6), (17, 13), 
+(18, 1), (18, 7), (18, 15), 
+(19, 3), (19, 5), (19, 9), 
+(20, 1), (20, 6), (20, 11), 
+(21, 2), (21, 9), (21, 12), 
+(22, 3), (22, 4), (22, 10);
 
 -- Data seeding for table Jamu_Rempah (relationships)
 INSERT INTO Jamu_Rempah (jamu_id, rempah_id) VALUES
-(1, 18), -- Jamu Kunyit Asam - kunyit
-(2, 15), -- Jamu Beras Kencur - kencur
-(3, 9),  -- Jamu Jahe - jahe
-(4, 16), -- Jamu Sambiloto - kemukus
-(5, 14); -- Jamu Temulawak - kemiri
+(1, 18), (1, 1), (1, 2),
+(2, 15), (2, 4), (2, 6),
+(3, 9), (3, 7), (3, 8),
+(4, 16), (4, 5), (4, 3),
+(5, 14), (5, 19), (5, 20),
+(6, 23), (6, 13), (6, 21),
+(7, 15), (7, 17), (7, 20),
+(8, 14), (8, 18), (8, 21),
+(9, 17), (9, 20), (9, 23),
+(10, 18), (10, 14), (10, 19),
+(11, 20), (11, 16), (11, 21),
+(12, 21), (12, 22), (12, 23),
+(13, 17), (13, 20), (13, 22),
+(14, 15), (14, 18), (14, 23),
+(15, 16), (15, 21), (15, 23),
+(16, 20), (16, 21), (16, 22),
+(17, 19), (17, 18), (17, 20),
+(18, 16), (18, 21), (18, 23),
+(19, 21), (19, 22), (19, 23),
+(20, 19), (20, 20), (20, 21),
+(21, 21), (21, 22), (21, 23),
+(22, 19), (22, 20), (22, 21);
 
 -- Data seeding for table Rempah_Manfaat (relationships)
 INSERT INTO Rempah_Manfaat (rempah_id, manfaat_id) VALUES
-(18, 5),  -- kunyit - Menurunkan Berat Badan
-(18, 10), -- kunyit - Menjaga Kesehatan Jantung
-(15, 3),  -- kencur - Melancarkan Pencernaan
-(15, 6),  -- kencur - Mengatasi Insomnia
-(9, 7),   -- jahe - Meredakan Batuk
-(9, 9),   -- jahe - Mengurangi Peradangan
-(16, 8),  -- kemukus - Mengurangi Stres
-(16, 1),  -- kemukus - Meningkatkan Daya Tahan Tubuh
-(14, 4),  -- kemiri - Menurunkan Kolesterol
-(14, 2);  -- kemiri - Mengurangi Nyeri Sendi
+(18, 5), (18, 10), (18, 14),
+(15, 3), (15, 6), (15, 12),
+(9, 7), (9, 9), (9, 11),
+(16, 8), (16, 1), (16, 13),
+(14, 4), (14, 2), (14, 15),
+(23, 1), (23, 5), (23, 9),
+(17, 2), (17, 4), (17, 9),
+(20, 3), (20, 5), (20, 12),
+(19, 1), (19, 7), (19, 10),
+(21, 3), (21, 5), (21, 9),
+(13, 1), (13, 5), (13, 9);
 
--- Data seeding for Jamu_penyakit
+-- Data seeding for Jamu_Penyakit (relationships)
 INSERT INTO Jamu_Penyakit (jamu_id, penyakit) VALUES
-    (1, 'Jantung'),
-    (2, 'Gangguan Pencernaan'),
-    (2, 'Insomnia'),
-    (3, 'Batuk'),
-    (3, 'Radang Tenggorokan'),
-    (4, 'Imunitas'),
-    (5, 'Kolesterol'),
-    (5, 'Nyeri Sendi');
+(1, 'Jantung'), (1, 'Haid'),
+(2, 'Gangguan Pencernaan'), (2, 'Insomnia'),
+(3, 'Batuk'), (3, 'Radang Tenggorokan'),
+(4, 'Imunitas'), 
+(5, 'Kolesterol'), (5, 'Nyeri Sendi'),
+(6, 'Imunitas'), (6, 'Hipertensi'),
+(7, 'Gangguan Pencernaan'), (7, 'Haid'),
+(8, 'Kolesterol'), (8, 'Anemia'),
+(9, 'Nyeri Sendi'), (9, 'Gangguan Pencernaan'),
+(10, 'Insomnia'),
+(11, 'Imunitas'), (11, 'Jantung'),
+(12, 'Anemia'),
+(13, 'Nyeri Sendi'),
+(14, 'Imunitas'), (14, 'Batuk'),
+(15, 'Gangguan Pencernaan'), 
+(16, 'Nyeri Sendi'),
+(17, 'Imunitas'),
+(18, 'Gangguan Pencernaan'),
+(19, 'Imunitas'),
+(20, 'Imunitas'), (20, 'Anemia'),
+(21, 'Nyeri Sendi'), (21, 'Insomnia'),
+(22, 'Imunitas'), (22, 'Batuk');
