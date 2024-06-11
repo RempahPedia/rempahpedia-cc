@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser');
+require("dotenv").config();
+const router = require("./routes");
 
 // Import Routes
 // const userRoutes = require('./routes/userRoutes');
@@ -9,6 +12,8 @@ const devName2 = process.env.DEV_NAME_2
 
 // Middleware
 app.use(express.json());
+app.use(cookieParser())
+app.use(router);
 
 app.get('/', (req, res) => {
     res.send(`Hello World!, this app is developed by: ${devName1} and ${devName2}`);
