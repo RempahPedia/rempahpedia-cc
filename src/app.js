@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
+const router = require("./routes");
 const cookieParser = require('cookie-parser');
 require("dotenv").config();
-const router = require("./routes");
 
 // Import Routes
 // const userRoutes = require('./routes/userRoutes');
