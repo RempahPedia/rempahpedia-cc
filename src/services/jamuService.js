@@ -28,7 +28,21 @@ async function getJamu(id){
     return rows[0];
 }
 
+async function searchJamu(keyword, filters) {
+    let query = `SELECT id, nama, array_to_json(penyakit) as penyakit FROM jamu WHERE nama ILIKE $1`;
+    let params = [`%${keyword}%`];
+
+    if (filters && filters.length > 0) {
+        query += ` AND penyakit && $2::penyakit[]`;
+        params.push(filters);
+    }
+
+    const rows  = await db.query(query, params);
+    return rows;
+}
+
 module.exports = {
     getAllJamu,
-    getJamu
+    getJamu,
+    searchJamu
 };
