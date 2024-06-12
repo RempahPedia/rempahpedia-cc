@@ -12,6 +12,23 @@ router.get('/', async (req, res) => {
     } 
 });
 
+router.get('/search', async (req, res) => {
+  try {
+      const { keyword, filter } = req.query;
+      const filters = filter ? filter.split(',') : [];
+
+      const results = await jamuService.searchJamu(keyword, filters);
+
+      if (results.length===0){
+        return res.status(404).json({ error: 'Jamu is not found' });
+      }
+      res.json(results);
+  } catch (error) {
+      console.error('Error occurred while searching:', error);
+      res.status(500).json({ error: 'An error occurred while searching' });
+  }
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const jamuId = req.params['id']
