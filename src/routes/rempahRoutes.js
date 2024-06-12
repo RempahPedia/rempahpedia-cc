@@ -12,4 +12,15 @@ router.get('/', async (req, res) => {
     } 
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const rempahId = req.params['id']
+    const data = await rempahService.getRempah(rempahId);
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching rempah data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  } 
+});
+
 module.exports = router;
