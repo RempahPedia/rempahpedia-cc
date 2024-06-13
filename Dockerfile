@@ -19,14 +19,14 @@ WORKDIR /app
 # Copy the package.json and package-lock.json files to the working directory
 COPY package*.json ./
 
-# Create service account for firebase
-RUN echo "$FIREBASE_SERVICE_ACCOUNT" > /app/src/firebaseService.json
-
 # Install the application dependencies
 RUN npm install
 
 # Copy the rest of the application code to the working directory
 COPY . .
+
+# Create service account for firebase
+RUN echo "$FIREBASE_SERVICE_ACCOUNT" > /src/firebaseService.json
 
 # Define ENV
 ENV DB_NAME $DB_NAME
