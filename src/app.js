@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const router = require("./routes");
 const cookieParser = require('cookie-parser');
+const verifyToken = require('./middleware/index');
 require("dotenv").config();
 
 // Import Routes
@@ -10,10 +11,11 @@ const rempahRoutes = require('./routes/rempahRoutes');
 
 // Middleware
 app.use(express.json());
-app.use(cookieParser())
-app.use(router);
+app.use(cookieParser());
+app.use(verifyToken);
 
-// Routes Middleware
+// Routes 
+app.use(router);
 app.use('/api/jamu', jamuRoutes);
 app.use('/api/rempah', rempahRoutes);
 
