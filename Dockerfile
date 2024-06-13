@@ -26,7 +26,7 @@ RUN npm install
 COPY . .
 
 # Create service account for firebase
-RUN echo "$FIREBASE_SERVICE_ACCOUNT" > /src/firebaseService.json
+RUN echo "$FIREBASE_SERVICE_ACCOUNT" > /app/src/firebaseService.json
 
 # Define ENV
 ENV DB_NAME $DB_NAME
