@@ -11,12 +11,16 @@ ARG FIREBASE_PROJECT_ID
 ARG FIREBASE_STORAGE_BUCKET
 ARG FIREBASE_MESSAGING_SENDER_ID
 ARG FIREBASE_APP_ID
+ARG FIREBASE_SERVICE_ACCOUNT
 
 # Create and set the working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy the package.json and package-lock.json files to the working directory
 COPY package*.json ./
+
+# Create service account for firebase
+RUN echo "$FIREBASE_SERVICE_ACCOUNT" > /app/src/firebaseService.json
 
 # Install the application dependencies
 RUN npm install
