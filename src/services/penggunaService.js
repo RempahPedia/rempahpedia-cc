@@ -5,7 +5,7 @@ async function savePrediciton(userEmail, rempah){
     const rempahIdResult = await db.query(rempahIdQuery, [rempah]);
     const rempahId = rempahIdResult[0].id;
 
-    const query = 'INSERT INTO Pengguna_Rempah(email, rempah_id) VALUES ($1, $2)';
+    const query = 'INSERT INTO Pengguna_Rempah(email, rempah_id) VALUES ($1, $2) ON CONFLICT (email, rempah_id) DO NOTHING;';
     const rows = await db.query(query, [userEmail, rempahId]);
     return rows;
 }
