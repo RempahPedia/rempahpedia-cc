@@ -2,7 +2,7 @@ const { admin } = require("../config/firebase");
 const verifyToken = async (req, res, next) => {
     const idToken = req.cookies.access_token;
     if (!idToken) {
-        req.user = {}; // No token provided, continue without user data
+        req.user = null; // No token provided, continue without user data
         return next();
     }
     try {
