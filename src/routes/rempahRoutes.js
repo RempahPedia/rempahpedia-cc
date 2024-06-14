@@ -4,7 +4,12 @@ const rempahService = require('../services/rempahService')
 
 router.get('/', async (req, res) => {
     try {
-      const data = await rempahService.getAllRempah();
+      if(!req.user){
+        const data = await rempahService.getAllRempah();
+        return res.json(data);
+      }
+      const emailUser = req.user.email;
+      const data = await rempahService.getAllRempahWithUser(emailUser);
       res.json(data);
     } catch (error) {
       console.error('Error fetching rempah data:', error);
