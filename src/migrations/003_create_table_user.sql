@@ -9,3 +9,5 @@ CREATE TABLE Pengguna_Rempah(
     FOREIGN KEY (email) REFERENCES Pengguna(email),
     FOREIGN KEY (rempah_id) REFERENCES Rempah(id)
 );
+
+INSERT INTO PENGGUNA(email) VALUES ('rikzakalmujtaba@gmail.com'), ('rikzakurnia1802@gmail.com');
