@@ -10,7 +10,8 @@ CREATE TABLE Rempah (
     nama VARCHAR(255) NOT NULL UNIQUE,
     deskripsi TEXT,
     manfaat_ids INT[],
-    image_url TEXT
+    image_url TEXT,
+    rarity INT
 );
 
 -- 3. Create enum type for Penyakit

@@ -39,6 +39,9 @@ class DatabasePool {
     }
     const sql = fs.readFileSync(path.join(__dirname, '..', 'migrations', '001_create_tables.sql')).toString();
     await this.pool.query(sql);
+
+    const sql_2 = fs.readFileSync(path.join(__dirname, '..', 'migrations', '003_create_table_user.sql')).toString();
+    await this.pool.query(sql_2);
     console.log('Migration applied successfully');
   }
 
