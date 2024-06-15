@@ -1,21 +1,9 @@
 const db = require('../config/dbconnection');
 
 async function saveUser(userEmail){
-    // const query = 'INSERT INTO Pengguna(email) VALUES($1)';
-    // const rows = await db.query(query, [userEmail]);
-    // return rows;
-
-    const client = await pool.connect();
-    try {
-        const query = 'INSERT INTO Pengguna (email) VALUES ($1) RETURNING *';
-        const res = await client.query(query, [email]);
-        return res.rows[0];
-    } catch (err) {
-        console.error('Error inserting data:', err);
-        throw err;
-    } finally {
-        client.release();
-    }
+    const query = 'INSERT INTO pengguna (email) VALUES ($1)';
+    const rows = await db.query(query, [userEmail]);
+    return rows;
 }
 
 async function savePrediciton(userEmail, rempah){

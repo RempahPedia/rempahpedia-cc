@@ -18,43 +18,22 @@ class FirebaseAuthController {
                 password: "Password is required"
             });
         }
-
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            await sendEmailVerification(auth.currentUser);
-            await penggunaService.saveUser(email);
-            res.status(201).json({ message: "Verification email sent! User created successfully!" });
-        } catch (error) {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            sendEmailVerification(auth.currentUser)
+            .then(() => {
+                penggunaService.saveUser(email);
+                res.status(201).json({ message: "Verification email sent! User created successfully!" });
+            })
+            .catch(() => {
+                console.error(error);
+                res.status(500).json({ error: "Error sending email verification" });
+            });
+        })
+        .catch((error) => {
             const errorMessage = error.message || "An error occurred while registering user";
-            console.error(error);
             res.status(500).json({ error: errorMessage });
-        }
-
-        app.post('/register', registerUser);
-
-        // createUserWithEmailAndPassword(auth, email, password)
-        // .then((userCredential) => {
-        //     sendEmailVerification(auth.currentUser)
-        //     .then(() => {
-        //         res.status(201).json({ message: "Verification email sent! User created successfully!" });
-        //     })
-        //     .catch(() => {
-        //         console.error(error);
-        //         res.status(500).json({ error: "Error sending email verification" });
-        //     });
-        // })
-        // .catch((error) => {
-        //     const errorMessage = error.message || "An error occurred while registering user";
-        //     res.status(500).json({ error: errorMessage });
-        // })
-        // penggunaService.saveUser(email, (err, result) => {
-        //     if (err) {
-        //         console.error('Error inserting data:', err);
-        //         return res.status(500).send('Error registering user');
-        //     } else {
-        //         res.status(200).send('User registered successfully');
-        //     }
-        // })
+        })
     };
 
     loginUser(req, res) {
