@@ -18,22 +18,16 @@ class FirebaseAuthController {
                 password: "Password is required"
             });
         }
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            sendEmailVerification(auth.currentUser)
-            .then(() => {
-                penggunaService.saveUser(email);
-                res.status(201).json({ message: "Verification email sent! User created successfully!" });
-            })
-            .catch(() => {
-                console.error(error);
-                res.status(500).json({ error: "Error sending email verification" });
-            });
-        })
-        .catch((error) => {
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            await sendEmailVerification(auth.currentUser);
+            await penggunaService.saveUser(email);
+            res.status(201).json({ message: "Verification email sent! User created successfully!" });
+        } catch (error) {
+            console.error(error);
             const errorMessage = error.message || "An error occurred while registering user";
             res.status(500).json({ error: errorMessage });
-        })
+        }
     };
 
     loginUser(req, res) {
