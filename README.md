@@ -23,7 +23,8 @@ The production server is live at:
 
 ## API Documentation
 
-The API documentation is currently under development and will be available soon.
+The API documentation is available at:
+[https://documenter.getpostman.com/view/23485693/2sA3XMiiJr](https://documenter.getpostman.com/view/23485693/2sA3XMiiJr)
 
 ## Installation
 
