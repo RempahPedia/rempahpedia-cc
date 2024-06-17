@@ -1,5 +1,6 @@
 CREATE TABLE Pengguna(
-    email VARCHAR(255) PRIMARY KEY
+    email VARCHAR(255) PRIMARY KEY,
+    is_unlocked BOOLEAN
 );
 
 CREATE TABLE Pengguna_Rempah(
