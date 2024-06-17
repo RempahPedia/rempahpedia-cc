@@ -1,5 +1,11 @@
 const db = require('../config/dbconnection');
 
+async function saveUser(userEmail){
+    const query = 'INSERT INTO pengguna (email) VALUES ($1)';
+    const rows = await db.query(query, [userEmail]);
+    return rows;
+}
+
 async function savePrediciton(userEmail, rempah){
     const rempahIdQuery = 'SELECT id FROM REMPAH WHERE nama=$1';
     const rempahIdResult = await db.query(rempahIdQuery, [rempah]);
@@ -45,4 +51,5 @@ module.exports = {
     savePrediciton,
     getNumberOfRempahUnlocked,
     getCurrentUser
+    saveUser
 };

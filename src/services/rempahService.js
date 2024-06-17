@@ -1,7 +1,7 @@
 const db = require('../config/dbconnection');
 
 async function getAllRempah(){
-    const query = 'SELECT id, nama, deskripsi, image_urlFROM rempah';
+    const query = 'SELECT id, nama, deskripsi, image_url FROM rempah';
     const rows = await db.query(query);
     rows.forEach(item => {
         item.is_unlocked = true;
@@ -25,7 +25,7 @@ async function getAllRempahWithUser(emailUser){
     const resultQueryPR = await db.query(queryPR, [emailUser]);
     const rempahIds = resultQueryPR.map(item => item.rempah_id);
 
-    const queryRempah = 'SELECT id, nama, deskripsi, image_urlFROM rempah';
+    const queryRempah = 'SELECT id, nama, deskripsi, image_url FROM rempah';
     const resultQueryRempah = await db.query(queryRempah);
     resultQueryRempah.forEach(item => {
         if(rempahIds.includes(item.id)){
