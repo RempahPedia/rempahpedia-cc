@@ -50,6 +50,6 @@ async function getCurrentUser(userEmail){
 module.exports = {
     savePrediciton,
     getNumberOfRempahUnlocked,
-    getCurrentUser
+    getCurrentUser,
     saveUser
 };
