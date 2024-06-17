@@ -20,4 +20,20 @@ router.post('/save', async (req, res) => {
     }
 });
 
+router.get('/unlocked', async (req, res) => {
+    try{
+        if(!req.user){
+            return res.status(401).json({ error: 'User Not found' });
+        }
+        const userEmail = req.user.email;
+
+        const data = await penggunaService.getNumberOfRempahUnlocked(userEmail);
+        res.status(200).json(data);
+
+    } catch(error){
+        console.error('Error adding data:', error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
 module.exports = router;
