@@ -18,7 +18,7 @@ const refreshToken = async (user) => {
 }
 
 const verifyAndRefreshToken = async (req, res, next) => {
-    const idToken = req.headers.authorization?.split('Bearer ')[1];
+    const idToken = req.cookies.access_token;
 
     if (!idToken) {
         req.user = null; 
@@ -31,7 +31,9 @@ const verifyAndRefreshToken = async (req, res, next) => {
 
         const newIdToken = await refreshToken(decodedToken);
         if (newIdToken) {
-            res.setHeader('New-Token', newIdToken);
+            res.cookie('New-Token', newIdToken, {
+                httpOnly: true
+            });
         }
 
         next();
