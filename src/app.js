@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const router = require("./routes");
 const cookieParser = require('cookie-parser');
-const verifyToken = require('./middleware/index');
+const {verifyAndRefreshToken} = require('./middleware/index');
 require("dotenv").config();
 
 // Import Routes
@@ -13,7 +13,7 @@ const penggunaRempahRoutes = require('./routes/penggunaRempahRoutes');
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(verifyToken);
+app.use(verifyAndRefreshToken);
 
 // Routes 
 app.use(router);

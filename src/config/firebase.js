@@ -27,7 +27,8 @@ const {
     signInWithEmailAndPassword, 
     signOut, 
     sendEmailVerification, 
-    sendPasswordResetEmail
+    sendPasswordResetEmail,
+    signInWithCustomToken
   
 } = require("firebase/auth");
 
@@ -38,6 +39,7 @@ module.exports = {
     signOut,
     sendEmailVerification,
     sendPasswordResetEmail,
+    signInWithCustomToken,
     admin,
     db
 };
