@@ -1,4 +1,5 @@
 const { admin } = require("../config/firebase");
+const { getAuth, signInWithCustomToken } = require('../config/firebase');
 
 const refreshToken = async (user) => {
     const currentTime = Date.now() / 1000;
@@ -6,8 +7,10 @@ const refreshToken = async (user) => {
 
     if (timeToExpire < 5 * 60) {
         try {
-            const userRecord = await admin.auth().getUser(user.uid);
-            const newIdToken = await admin.auth().createCustomToken(user.uid);
+            const newCustomToken = await admin.auth().createCustomToken(user.uid);
+            const auth = getAuth();
+            const newCredential = await signInWithCustomToken(auth, newCustomToken);
+            const newIdToken = newCredential._tokenResponse.idToken;
             return newIdToken;
         } catch (error) {
             console.error('Error refreshing token:', error);
@@ -31,7 +34,7 @@ const verifyAndRefreshToken = async (req, res, next) => {
 
         const newIdToken = await refreshToken(decodedToken);
         if (newIdToken) {
-            res.cookie('New-Token', newIdToken, {
+            res.cookie('access_token', newIdToken, {
                 httpOnly: true
             });
         }
