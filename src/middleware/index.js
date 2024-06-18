@@ -1,5 +1,6 @@
 const { admin } = require("../config/firebase");
 const { getAuth, signInWithCustomToken } = require('../config/firebase');
+const axios = require('axios');
 
 const refreshToken = async (user) => {
     const currentTime = Date.now() / 1000;
@@ -42,6 +43,30 @@ const verifyAndRefreshToken = async (req, res, next) => {
         next();
     } catch (error) {
         console.error('Error verifying token:', error);
+
+        if (error.code === 'auth/id-token-expired') {
+            // Token is expired, refresh it
+            API_KEY = process.env.FIREBASE_API_KEY;
+            try {
+                const refreshToken = req.cookies.refresh_token;
+                const refreshTokenResponse = await axios.post(`https://securetoken.googleapis.com/v1/token?key=${API_KEY}`, {
+                    grant_type: 'refresh_token',
+                    refresh_token: refreshToken,
+                });
+
+                const newIdToken = refreshTokenResponse.data.id_token;
+
+                res.cookie('access_token', newIdToken, {
+                    httpOnly: true
+                });
+
+                req.user = await admin.auth().verifyIdToken(newIdToken);
+                return next();
+            } catch (refreshError) {
+                console.error('Error refreshing token:', refreshError);
+                return res.status(403).json({ error: 'Fail to refresh token' });
+            }
+        }
         return res.status(403).json({ error: 'Unauthorized' });
     }
 };
